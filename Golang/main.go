@@ -144,13 +144,13 @@ func setupRouter(adurl string) *gin.Engine {
 		case "douyin":
 			douyinobj := &liveurls.Douyin{}
 			douyinobj.Rid = rid
-			c.Redirect(http.StatusMovedPermanently, duanyan(adurl, douyinobj.GetDouYinUrl()))
+			c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", douyinobj.GetDouYinUrl()))
 		case "douyu":
 			douyuobj := &liveurls.Douyu{}
 			douyuobj.Rid = rid
 			douyuobj.Stream_type = c.DefaultQuery("stream", "hls")
 			douyuobj.Cdn_type = c.DefaultQuery("cdn", "openhls-tct")
-			c.Redirect(http.StatusMovedPermanently, duanyan(adurl, douyuobj.GetRealUrl()))
+			c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", douyuobj.GetRealUrl()))
 		case "huya":
 			huyaobj := &liveurls.Huya{}
 			huyaobj.Rid = rid
@@ -160,7 +160,7 @@ func setupRouter(adurl string) *gin.Engine {
 			if huyaobj.Type == "display" {
 				c.JSON(200, huyaobj.GetLiveUrl())
 			} else {
-				c.Redirect(http.StatusMovedPermanently, duanyan(adurl, huyaobj.GetLiveUrl()))
+				c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", huyaobj.GetLiveUrl()))
 			}
 		case "bilibili":
 			biliobj := &liveurls.BiliBili{}
@@ -168,17 +168,17 @@ func setupRouter(adurl string) *gin.Engine {
 			biliobj.Platform = c.DefaultQuery("platform", "web")
 			biliobj.Quality = c.DefaultQuery("quality", "10000")
 			biliobj.Line = c.DefaultQuery("line", "second")
-			c.Redirect(http.StatusMovedPermanently, duanyan(adurl, biliobj.GetPlayUrl()))
+			c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", biliobj.GetPlayUrl()))
 		case "youtube":
 			ytbObj := &liveurls.Youtube{}
 			ytbObj.Rid = rid
 			ytbObj.Quality = c.DefaultQuery("quality", "1080")
-			c.Redirect(http.StatusMovedPermanently, duanyan(adurl, ytbObj.GetLiveUrl()))
+			c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", ytbObj.GetLiveUrl()))
 		case "yy":
 			yyObj := &liveurls.Yy{}
 			yyObj.Rid = rid
 			yyObj.Quality = c.DefaultQuery("quality", "4")
-			c.Redirect(http.StatusMovedPermanently, duanyan(adurl, yyObj.GetLiveUrl()))
+			c.Redirect(http.StatusMovedPermanently, duanyan("http://n.sinaimg.cn/sinakd20102/486/w2048h1638/20221031/2a78-57e2288d2171ef462856c937c7efa680.jpg", yyObj.GetLiveUrl()))
 		}
 	})
 	return r
